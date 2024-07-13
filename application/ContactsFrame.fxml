@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+	<top>
+		<VBox prefWidth="100.0" BorderPane.alignment="CENTER">
+			<children>
+				<MenuBar>
+					<menus>
+						<Menu mnemonicParsing="false" text="File">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#onLoadAction" text="Load">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/business_contact-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem mnemonicParsing="false" onAction="#onSaveAction" text="Save">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/save-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem mnemonicParsing="false" onAction="#onSaveAsAction" text="Save As ...">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/save-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<SeparatorMenuItem mnemonicParsing="false" />
+								<MenuItem mnemonicParsing="false" onAction="#onQuitAction" text="Quit">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/shutdown-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Edit">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#onAddAction" text="Add">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/add_user-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem mnemonicParsing="false" onAction="#onDeleteAction" text="Delete">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/remove_user-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<CheckMenuItem fx:id="editMenuItem" mnemonicParsing="false" onAction="#onEditAction" text="Edit">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/edit_user-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</CheckMenuItem>
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Preferences">
+							<items>
+								<Menu mnemonicParsing="false" text="Display">
+									<items>
+										<RadioMenuItem mnemonicParsing="false" onAction="#onDisplayButtonsWithGraphicsOnlyAction" selected="true" text="Graphics Only">
+											<toggleGroup>
+												<ToggleGroup fx:id="buttonsDisplayGroup" />
+											</toggleGroup>
+										</RadioMenuItem>
+										<RadioMenuItem mnemonicParsing="false" onAction="#onDisplayButtonsWithTextAndGraphicsAction" text="Text + Graphics" toggleGroup="$buttonsDisplayGroup" />
+										<RadioMenuItem mnemonicParsing="false" onAction="#onDisplayButtonsWithTextOnlyAction" text="Text Only" toggleGroup="$buttonsDisplayGroup" />
+									</items>
+								</Menu>
+								<Menu mnemonicParsing="false" text="Debug Level">
+									<items>
+										<RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelUpToInfoAction" selected="true" text="Info + Warning + Severe">
+											<toggleGroup>
+												<ToggleGroup fx:id="debugLevelGroup" />
+											</toggleGroup>
+										</RadioMenuItem>
+										<RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelUpToWarningAction" text="Warning + Severe" toggleGroup="$debugLevelGroup">
+										</RadioMenuItem>
+										<RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelUpToSevereAction" text="Severe" toggleGroup="$debugLevelGroup">
+										</RadioMenuItem>
+										<RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelOffAction" text="Off" toggleGroup="$debugLevelGroup">
+										</RadioMenuItem>
+									</items>
+								</Menu>
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#onAboutAction" text="About">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/about-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+				<ToolBar>
+					<items>
+						<Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddAction" text="Add">
+							<graphic>
+								<ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../icons/add_user-32.png" />
+									</image>
+								</ImageView>
+							</graphic>
+                     <tooltip>
+                        <Tooltip text="Add Contact" />
+                     </tooltip>
+						</Button>
+						<Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDeleteAction" text="Delete">
+							<graphic>
+								<ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../icons/remove_user-32.png" />
+									</image>
+								</ImageView>
+							</graphic>
+                     <tooltip>
+                        <Tooltip text="Delete Selected Contact" />
+                     </tooltip>
+						</Button>
+						<ToggleButton fx:id="editButton" mnemonicParsing="false" onAction="#onEditAction" text="Edit">
+							<graphic>
+								<ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../icons/edit_user-32.png" />
+									</image>
+								</ImageView>
+							</graphic>
+                     <tooltip>
+                        <Tooltip text="Edit Selected Contact" />
+                     </tooltip>
+						</ToggleButton>
+						<Separator orientation="VERTICAL" />
+						<HBox HBox.hgrow="ALWAYS" />
+						<Separator orientation="VERTICAL" />
+						<Button fx:id="quitButton" mnemonicParsing="false" onAction="#onQuitAction" text="Quit">
+							<graphic>
+								<ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../icons/shutdown-32.png" />
+									</image>
+								</ImageView>
+							</graphic>
+                     <tooltip>
+                        <Tooltip text="Quit Application" />
+                     </tooltip>
+						</Button>
+					</items>
+				</ToolBar>
+			</children>
+		</VBox>
+	</top>
+	<left>
+		<VBox prefHeight="200.0" BorderPane.alignment="CENTER">
+			<children>
+				<HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="NEVER">
+					<children>
+						<Label minWidth="-Infinity" prefWidth="40.0" text="type" />
+						<ComboBox fx:id="typeComboBox" maxWidth="1.7976931348623157E308" onAction="#onFilterPredicateChanged" promptText="Contact Type" HBox.hgrow="ALWAYS">
+                     <tooltip>
+                        <Tooltip text="Filter by Contact Type" />
+                     </tooltip></ComboBox>
+					</children>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+				</HBox>
+				<HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+					<children>
+						<Label minWidth="-Infinity" prefWidth="40.0" text="search" />
+						<TextField fx:id="searchField" onAction="#onFilterPredicateChanged">
+                     <tooltip>
+                        <Tooltip text="Filter by Content" />
+                     </tooltip></TextField>
+					</children>
+					<opaqueInsets>
+						<Insets />
+					</opaqueInsets>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+				</HBox>
+				<ListView fx:id="contactListView" onMouseClicked="#onListSelectionChanged" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+					<contextMenu>
+						<ContextMenu>
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#onAddAction" text="Add">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/add_user-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem mnemonicParsing="false" onAction="#onDeleteAction" text="Delete">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/remove_user-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<CheckMenuItem fx:id="editContextMenuItem" mnemonicParsing="false" onAction="#onEditAction" text="Edit">
+									<graphic>
+										<ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../icons/edit_user-16.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</CheckMenuItem>
+							</items>
+						</ContextMenu>
+					</contextMenu>
+				</ListView>
+			</children>
+		</VBox>
+	</left>
+	<bottom>
+		<Pane BorderPane.alignment="CENTER">
+			<children>
+				<Label fx:id="messageLabel" text="info" />
+			</children>
+			<BorderPane.margin>
+				<Insets left="10.0" />
+			</BorderPane.margin>
+		</Pane>
+	</bottom>
+	<center>
+      <VBox BorderPane.alignment="CENTER_LEFT">
+         <children>
+      		<ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+      			<content>
+      				<GridPane fx:id="contactGridPane" maxWidth="-Infinity" prefWidth="500.0">
+      					<columnConstraints>
+      						<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
+      						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      					</columnConstraints>
+      					<rowConstraints>
+      						<RowConstraints maxHeight="-Infinity" minHeight="100.0" prefHeight="100.0" vgrow="NEVER" />
+      						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      					</rowConstraints>
+      					<children>
+      						<ImageView fx:id="iconView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+      							<image>
+      								<Image url="@../icons/contacts-48.png" />
+      							</image>
+      						</ImageView>
+      						<Label fx:id="companyStaffTitle" text="companie / staff" GridPane.rowIndex="1">
+      							<GridPane.margin>
+      								<Insets left="10.0" />
+      							</GridPane.margin>
+      						</Label>
+      						<Label fx:id="phonesTitle" text="téléphone" GridPane.rowIndex="2">
+      							<GridPane.margin>
+      								<Insets left="10.0" />
+      							</GridPane.margin>
+      						</Label>
+      						<Label fx:id="emailsTitle" text="e-mails" GridPane.rowIndex="3">
+      							<GridPane.margin>
+      								<Insets left="10.0" />
+      							</GridPane.margin>
+      						</Label>
+      						<Label fx:id="addressesTitle" text="addresses" GridPane.rowIndex="4">
+      							<GridPane.margin>
+      								<Insets left="10.0" />
+      							</GridPane.margin>
+      						</Label>
+      						<Label fx:id="linksTitle" text="liens" GridPane.rowIndex="5">
+      							<GridPane.margin>
+      								<Insets left="10.0" />
+      							</GridPane.margin>
+      						</Label>
+      						<Label fx:id="notesTitle" text="notes" GridPane.rowIndex="6">
+      							<padding>
+      								<Insets left="10.0" />
+      							</padding>
+      						</Label>
+      						<VBox fx:id="companyStaffVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+      						<VBox fx:id="phonesVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+      						<VBox fx:id="emailsVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+      						<VBox fx:id="addressesVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
+      						<VBox fx:id="linksVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+      						<VBox fx:id="notesVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS" />
+                        <Button fx:id="cancelButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCancelAction" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                        <Button fx:id="submitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSubmitAction" text="Submit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+      					</children>
+      				</GridPane>
+      			</content>
+      		</ScrollPane>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button fx:id="companyButton" mnemonicParsing="false" onAction="#onAddCompanyAction" text="Company">
+                     <tooltip>
+                        <Tooltip text="Add Company" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/organization-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="staffButton" mnemonicParsing="false" onAction="#onAddStaffAction" text="Staff">
+                     <tooltip>
+                        <Tooltip text="Add Employee" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/group-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="imageButton" mnemonicParsing="false" onAction="#onAddImageAction" text="Photo">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/add_person-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Add Photo" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="phoneButton" mnemonicParsing="false" onAction="#onAddPhoneAction" text="Phone">
+                     <tooltip>
+                        <Tooltip text="Add Phone Number" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/phone_disconnected-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="emailButton" mnemonicParsing="false" onAction="#onAddEmailAction" text="E-mail">
+                     <tooltip>
+                        <Tooltip text="Add E-mail" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/email-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="addressButton" mnemonicParsing="false" onAction="#onAddAddressAction" text="Address">
+                     <tooltip>
+                        <Tooltip text="Add Address" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/map_marker-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="linkButton" mnemonicParsing="false" onAction="#onAddLinkAction" text="Link">
+                     <tooltip>
+                        <Tooltip text="Add Link" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/link-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="noteButton" mnemonicParsing="false" onAction="#onAddNoteAction" text="Note">
+                     <tooltip>
+                        <Tooltip text="Add Note" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/note-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+	</center>
+</BorderPane>

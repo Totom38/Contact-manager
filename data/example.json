@@ -1,0 +1,233 @@
+{
+	"date" : "2024/05/03",
+	"contacts" : [
+		{
+			"name" : "ENSIIE",
+			"employees" : [
+				"Pierre Durand",
+				"Sophie Durand"
+			],
+			"phones" : [
+				{
+					"name" : "bureau",
+					"number" : "01 69 36 73 62"
+				},
+				{
+					"name" : "accueil",
+					"number" : "01 69 36 73 50"
+				}
+			],
+			"emails" : [
+				{"name" : "info", "uri" : "mailto:info@ensiie.fr"}
+			],
+			"addresses" : [
+				{
+					"name" : "principale",
+					"number" : 1,
+					"way" : "Place de la Résistance",
+					"zipcode" : "91000",
+					"city" : "Evry"
+				}
+			],
+			"links" : [
+				{
+					"name" : "web",
+					"uri" : "https://www.ensiie.fr"
+				},
+				{
+					"name" : "pydio",
+					"uri" : "https://pydio.pedago.ensiie.fr"
+				},
+				{
+					"name" : "aurion",
+					"uri" : "https://aurionweb.ensiie.fr"
+				}
+			],
+			"notes" : [
+				{
+					"name" : "horaires",
+					"date" : "2024/05/03",
+					"content" : "de 09:00 à 22:00"
+				}
+			]
+		},
+		{
+			"name" : "Durand",
+			"firstname" : "Pierre",
+			"corporation" : "ENSIIE",
+			"phones" : [
+				{"name" : "accueil", "number" : "01 69 36 73 50"},
+				{"name" : "bureau", "number" : "01 69 36 73 62"}
+			],
+			"emails" : [
+				{"name" : "bureau", "uri" : "mailto:pierre.durand@ensiie.fr"},
+				{"name" : "labo", "uri" : "mailto:pierre.durand@labo.fr"},
+				{"name" : "perso", "uri" : "mailto:pierrot44@yahoo.com"}
+			],
+			"addresses" : [
+				{
+					"name" : "bureau",
+					"number" : "1",
+					"way" :"Place de la Résistance",
+					"zipcode" : "91025",
+					"city" : "Evry-Courcouronnes",
+					"country" : "France"
+				},
+				{
+					"name" : "labo",
+					"number" : "45",
+					"way" :"Rue du Ventoux",
+					"zipcode" : "91020",
+					"city" : "Evry Cedex",
+					"country" : "France"
+				},
+				{
+					"name" : "maison",
+					"number" : "21",
+					"way" :"Rue Gustave Courbet",
+					"zipcode" : "91200",
+					"city" : "Corbeille-Essonnes"
+				}
+			],
+			"links" : [
+				{
+					"name" : "web",
+					"uri" : "https://www.ensiie.fr"
+				}
+			],
+			"notes" : [
+				{
+					"name" : "digicode",
+					"date" : "2024/05/01",
+					"content" : "1234"
+				},
+				{
+					"name" : "poubelles",
+					"date" : "2024/03/01",
+					"content" : "mercredi soir"
+				},
+				{
+					"name" : "encombrants",
+					"date" : "2024/03/01",
+					"content" : "tous les 3ème lundis du mois"
+				}
+			]
+		},
+		{
+			"name" : "Durand",
+			"firstname" : "Sophie",
+			"corporation" : "ENSIIE",
+			"phones" : [
+				{"name" : "accueil", "number" : "01 69 36 73 50"},
+				{"name" : "bureau", "number" : "01 69 36 73 63"}
+			],
+			"emails" : [
+				{"name" : "bureau", "uri" : "mailto:sophie.durand@ensiie.fr"},
+				{"name" : "imtbs", "uri" : "mailto:sophie.durand@imtb.fr"},
+				{"name" : "perso", "uri" : "mailto:sophia41@gmail.com"}
+			],
+			"addresses" : [
+				{
+					"name" : "bureau",
+					"number" : "1",
+					"way" :"Place de la Résistance",
+					"zipcode" : "91025",
+					"city" : "Evry-Courcouronnes",
+					"country" : "France"
+				},
+				{
+					"name" : "labo",
+					"number" : "9",
+					"way" :"Rue Charles Fourier",
+					"zipcode" : "91011",
+					"city" : "Evry Cedex",
+					"country" : "France"
+				},
+				{
+					"name" : "cabane",
+					"number" : "1443",
+					"way" :"Chem. de la Lièvre S.",
+					"zipcode" : "QC J9L 3G3",
+					"city" : "Mont-Laurier",
+					"country" : "Canada"
+				}
+			],
+			"links" : [
+				{
+					"name" : "exam",
+					"uri" : "http://exam.ensiie.fr"
+				},
+				{
+					"name" : "pedago-etu",
+					"uri" : "sftp://pedago-etu.ensiie.fr"
+				},
+				{
+					"name" : "imt-bs",
+					"uri" : "https://www.imt-bs.eu/"
+				}
+			],
+			"notes" : [
+				{
+					"name" : "digicode",
+					"date" : "2024/05/01",
+					"content" : "1234"
+				},
+				{
+					"name" : "poubelles",
+					"date" : "2024/03/01",
+					"content" : "mercredi soir"
+				},
+				{
+					"name" : "encombrants",
+					"date" : "2024/03/01",
+					"content" : "tous les 3ème lundis du mois"
+				}
+			]
+		},
+		{
+			"name" : "Dupont",
+			"firstname" : "Paul",
+			"corporation" : "IMT-BS",
+			"image" : "../icons/checked_person-48.png",
+			"addresses" : [
+				{
+					"name" : "bureau",
+					"number" : "9",
+					"way" :"Rue Charles Fourier",
+					"zipcode" : "91011",
+					"city" : "Evry Cedex",
+					"country" : "France"
+				}
+			],
+			"emails" : [
+				{"name" : "bureau", "uri" : "mailto:paul.dubois@imt-bs.eu"},
+				{"name" : "perso", "uri" : "mailto:paul_dubois@caramail.fr"}
+			],
+			"links" : [
+				{"name" : "web", "uri" : "https://www.imt-bs.eu/"}
+			]
+		},
+		{
+			"name" : "IMT-BS",
+			"employees" : [
+				"Paul Dupont"
+			],
+			"addresses" : [
+				{
+					"name" : "principale",
+					"number" : "9",
+					"way" :"Rue Charles Fourier",
+					"zipcode" : "91011",
+					"city" : "Evry Cedex",
+					"country" : "France"
+				}
+			],
+			"emails" : [
+				{"name" : "info", "uri" : "mailto:info@imt-bs.eu"}
+			],
+			"links" : [
+				{"name" : "web", "uri" : "https://www.imt-bs.eu/"}
+			]
+		}
+	]
+}

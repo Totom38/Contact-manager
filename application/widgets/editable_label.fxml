@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+
+<fx:root alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" type="StackPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="textField" maxWidth="1.7976931348623157E308" onAction="#onEditionCompleted" text="content" />
+      <Button fx:id="button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEditionRequired" style="-fx-background-color: transparent; -fx-alignment: CENTER_LEFT;" text="content" />
+   </children>
+</fx:root>
